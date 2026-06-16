@@ -67,12 +67,18 @@
       </div>
 
       <div>
-        <!-- NETLIFY FORMS - CORREGIDO: usa 'netlify' en lugar de 'data-netlify' -->
-        <form class="contact-form" name="contacto" method="POST" netlify netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contacto" />
-          <p style="display:none;">
-            <label>No llenar esto: <input name="bot-field" /></label>
-          </p>
+        <!-- FORMSUBMIT: envía los mensajes directo al email -->
+        <form class="contact-form" action="https://formsubmit.co/EMAIL_DE_TU_HERMANA" method="POST">
+          <!-- Redirección después de enviar -->
+          <input type="hidden" name="_next" value="https://psicosalud-fuentes.netlify.app/gracias.html">
+          <!-- Asunto del email -->
+          <input type="hidden" name="_subject" value="Nuevo mensaje de Psicosalud Web">
+          <!-- Sin captcha -->
+          <input type="hidden" name="_captcha" value="false">
+          <!-- Formato del email en tabla -->
+          <input type="hidden" name="_template" value="table">
+          <!-- Email de copia (tu email, opcional) -->
+          <input type="hidden" name="_cc" value="TU_EMAIL@gmail.com">
           
           <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-family: var(--font-heading);">Envíame un mensaje</h3>
           
@@ -113,16 +119,7 @@
       </div>
     </div>
 
-    <!-- ==================== CALENDLY ==================== -->
-    <!-- INSTRUCCIONES: 
-         Cuando tu hermana tenga su cuenta de Calendly, borra TODO lo que está 
-         entre "INICIO CALENDLY" y "FIN CALENDLY" y pega el widget de ella.
-         
-         Si aún no tiene Calendly y quieres ocultar el calendario temporalmente,
-         borra todo entre INICIO y FIN, y descomenta el PLACEHOLDER de abajo.
-    -->
-
-    <!-- INICIO CALENDLY (BORRAR DESDE AQUÍ...) -->
+    <!-- CALENDLY: placeholder temporal. Cuando tu hermana tenga cuenta, reemplaza este bloque por el widget -->
     <div class="calendly-container" style="text-align: center; padding: 3rem;">
       <h3 style="color: var(--color-primary); margin-bottom: 1rem; font-family: var(--font-heading);">
         📅 Reserva de citas
@@ -135,3 +132,10 @@
         Escríbeme por WhatsApp
       </a>
     </div>
+
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
