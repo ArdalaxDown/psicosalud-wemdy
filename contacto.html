@@ -67,7 +67,13 @@
       </div>
 
       <div>
-        <form class="contact-form" action="https://formspree.io/f/xeewdaze" method="POST">
+        <!-- NETLIFY FORMS - CORREGIDO: usa 'netlify' en lugar de 'data-netlify' -->
+        <form class="contact-form" name="contacto" method="POST" netlify netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contacto" />
+          <p style="display:none;">
+            <label>No llenar esto: <input name="bot-field" /></label>
+          </p>
+          
           <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-family: var(--font-heading);">Envíame un mensaje</h3>
           
           <div class="form-group">
@@ -107,36 +113,25 @@
       </div>
     </div>
 
-    <!-- CALENDLY: REEMPLAZA EL DATA-URL CON TU LINK DE CALENDLY -->
-    <div class="calendly-container">
-      <h3 style="color: var(--color-primary); margin-bottom: 1rem; font-family: var(--font-heading); text-align: center;">
-        📅 Reserva tu cita directamente
-      </h3>
-      <p style="text-align: center; margin-bottom: 1.5rem;">
-        Selecciona el día y horario que mejor se ajuste a tu agenda.
-      </p>
-      
-      <!-- 
-      INSTRUCCIONES CALENDLY:
-      1. Ve a calendly.com y crea una cuenta gratuita
-      2. Configura tu disponibilidad horaria
-      3. Copia tu "Inline Widget" y reemplaza el div de abajo
-      -->
-        <!-- Calendly inline widget begin -->
-        <div class="calendly-inline-widget" 
-            data-url="https://calendly.com/ardalax/new-meeting" 
-            style="min-width:320px;height:700px;">
-        </div>
-        <script type="text/javascript" 
-                src="https://assets.calendly.com/assets/external/widget.js" 
-                async>
-        </script>
-        <!-- Calendly inline widget end -->
-      </div>
-    </div>
-  </section>
+    <!-- ==================== CALENDLY ==================== -->
+    <!-- INSTRUCCIONES: 
+         Cuando tu hermana tenga su cuenta de Calendly, borra TODO lo que está 
+         entre "INICIO CALENDLY" y "FIN CALENDLY" y pega el widget de ella.
+         
+         Si aún no tiene Calendly y quieres ocultar el calendario temporalmente,
+         borra todo entre INICIO y FIN, y descomenta el PLACEHOLDER de abajo.
+    -->
 
-  <div id="footer-placeholder"></div>
-  <script src="js/main.js"></script>
-</body>
-</html>
+    <!-- INICIO CALENDLY (BORRAR DESDE AQUÍ...) -->
+    <div class="calendly-container" style="text-align: center; padding: 3rem;">
+      <h3 style="color: var(--color-primary); margin-bottom: 1rem; font-family: var(--font-heading);">
+        📅 Reserva de citas
+      </h3>
+      <p style="margin-bottom: 1.5rem;">
+        El sistema de citas online estará disponible próximamente.<br>
+        Mientras tanto, puedes contactarme por WhatsApp o completar el formulario de arriba.
+      </p>
+      <a href="https://wa.me/51972031179" class="btn btn-primary" target="_blank">
+        Escríbeme por WhatsApp
+      </a>
+    </div>
