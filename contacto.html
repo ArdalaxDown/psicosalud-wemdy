@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta a Wemdy Fuentes, Psicóloga en Lima, Perú. Agenda tu cita online o presencial. Teléfono: 972 031 179.">
+  <title>Contacto | Psicosalud Wemdy Fuentes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <section class="container" style="padding-top: 3rem;">
+    <h2 class="section-title">Contacto y Citas</h2>
+    <p style="text-align: center; max-width: 700px; margin: -2rem auto 3rem;">
+      Estoy aquí para responder tus dudas y acompañarte en tu proceso. 
+      Elige la forma de contacto que prefieras.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>📱 WhatsApp / Teléfono</h3>
+        <div class="contact-item">
+          <span>📞</span>
+          <a href="tel:+51972031179">972 031 179</a>
+        </div>
+        <p style="font-size: 0.9rem; color: #666; margin-left: 2.5rem;">
+          Respuesta en menos de 24 horas
+        </p>
+
+        <h3>💬 Instagram</h3>
+        <div class="contact-item">
+          <span>📷</span>
+          <a href="https://www.instagram.com/psicosalud.wemdyfuentes" target="_blank">
+            @psicosalud.wemdyfuentes
+          </a>
+        </div>
+        <p style="font-size: 0.9rem; color: #666; margin-left: 2.5rem;">
+          Contáctame por mensaje privado
+        </p>
+
+        <h3>📍 Ubicación</h3>
+        <div class="contact-item">
+          <span>🌎</span>
+          <span>Lima, Perú</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666; margin-left: 2.5rem;">
+          Sesiones virtuales desde cualquier lugar.<br>
+          Presencial bajo consulta de disponibilidad.
+        </p>
+
+        <h3>🗣️ Idiomas</h3>
+        <div class="contact-item">
+          <span>🌐</span>
+          <span>Español (principal) e Inglés</span>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--color-secondary); border-radius: 8px;">
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">⚡ Respuesta rápida</h4>
+          <p style="font-size: 0.95rem;">
+            Para agilizar tu atención, escríbeme por WhatsApp indicando:<br>
+            1. Tu nombre<br>
+            2. Tipo de servicio que buscas<br>
+            3. Preferencia de horario
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" action="https://formspree.io/f/xeewdaze" method="POST">
+          <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-family: var(--font-heading);">Envíame un mensaje</h3>
+          
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Selecciona una opción</option>
+              <option value="individual">Terapia Individual</option>
+              <option value="pareja">Terapia de Pareja</option>
+              <option value="online">Terapia Online</option>
+              <option value="presencial">Sesión Presencial</option>
+              <option value="charla">Charla/Taller</option>
+              <option value="otro">Otra consulta</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntame brevemente en qué puedo ayudarte..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar mensaje</button>
+          
+          <p style="font-size: 0.8rem; color: #888; margin-top: 1rem; text-align: center;">
+            🔒 Tu información es confidencial y no será compartida.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- CALENDLY: REEMPLAZA EL DATA-URL CON TU LINK DE CALENDLY -->
+    <div class="calendly-container">
+      <h3 style="color: var(--color-primary); margin-bottom: 1rem; font-family: var(--font-heading); text-align: center;">
+        📅 Reserva tu cita directamente
+      </h3>
+      <p style="text-align: center; margin-bottom: 1.5rem;">
+        Selecciona el día y horario que mejor se ajuste a tu agenda.
+      </p>
+      
+      <!-- 
+      INSTRUCCIONES CALENDLY:
+      1. Ve a calendly.com y crea una cuenta gratuita
+      2. Configura tu disponibilidad horaria
+      3. Copia tu "Inline Widget" y reemplaza el div de abajo
+      -->
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" 
+            data-url="https://calendly.com/ardalax/new-meeting" 
+            style="min-width:320px;height:700px;">
+        </div>
+        <script type="text/javascript" 
+                src="https://assets.calendly.com/assets/external/widget.js" 
+                async>
+        </script>
+        <!-- Calendly inline widget end -->
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
