@@ -86,11 +86,12 @@
 
       <div>
         <!-- FORMSUBMIT: envía los mensajes directo al email -->
-        <form class="contact-form" action="https://formspree.io/f/xrewpdde" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/correo_de_tu_hermana@gmail.com" method="POST">
           <input type="hidden" name="_next" value="https://psicosalud-fuentes.netlify.app/gracias.html">
           <input type="hidden" name="_subject" value="Nuevo mensaje de Psicosalud Web">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
+          <!-- Puedes poner tu correo en _cc si quieres recibir una copia de los mensajes -->
           <input type="hidden" name="_cc" value="TU_EMAIL@gmail.com">
           
           <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-family: var(--font-heading);">Envíame un mensaje</h3>
@@ -98,6 +99,12 @@
           <div class="form-group">
             <label for="nombre">Nombre completo</label>
             <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+          </div>
+
+          <!-- CAMPO AÑADIDO: TELÉFONO / WHATSAPP -->
+          <div class="form-group">
+            <label for="telefono">Número de celular / WhatsApp</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="Tu número de contacto">
           </div>
 
           <div class="form-group">
