@@ -1,140 +1,1300 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Psicosalud Wemdy Fuentes - Psicóloga Psicoterapeuta en Lima, Perú. Terapia online y presencial. Un lugar para ti y tus emociones.">
-  <title>Psicosalud Wemdy Fuentes | Psicóloga Psicoterapeuta en Lima</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Psicosalud Wemdy Fuentes - Psicóloga Psicoterapeuta en Lima, Perú. Terapia online y presencial.">
+<title>Psicosalud Wemdy Fuentes | Psicóloga Psicoterapeuta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="motion.css">
+<style>
+:root {
+  --primary: #5B8C5A;
+  --secondary: #F4F1DE;
+  --accent: #E07A5F;
+  --text: #3D405B;
+  --bg: #FAFAF9;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(250, 250, 249, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(91, 140, 90, 0.1);
+  transition: box-shadow 0.3s, padding 0.3s;
+}
+
+header.scrolled {
+  box-shadow: 0 2px 30px rgba(0,0,0,0.06);
+  padding: 0.4rem 2rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.header-left img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  transition: transform 0.3s;
+}
+
+.header-left:hover img { transform: scale(1.05); }
+
+.header-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.header-brand span {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.header-phone {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.header-phone:hover { color: var(--primary); }
+
+.header-cta {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+.header-cta:hover {
+  background: #4a7249;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(91, 140, 90, 0.3);
+}
+
+.header-ig {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.header-ig:hover { color: var(--accent); }
+
+/* ===== NAV BAR ===== */
+.nav-bar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(250, 250, 249, 0.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(91, 140, 90, 0.08);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.6rem 1rem;
+  transition: top 0.3s;
+}
+
+.nav-bar.hidden { top: -60px; }
+
+.nav-bar a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-bar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s;
+}
+
+.nav-bar a:hover { color: var(--primary); }
+.nav-bar a:hover::after { width: 100%; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero-logo {
+  max-width: 160px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  line-height: 1.1;
+}
+
+.hero .tagline {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero .location {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-hero {
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 6px 25px rgba(91, 140, 90, 0.3);
+}
+
+.btn-primary:hover {
+  background: #4a7249;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(91, 140, 90, 0.4);
+}
+
+.btn-white {
+  background: white;
+  color: var(--primary);
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.btn-outline-white:hover {
+  background: white;
+  color: var(--primary);
+  border-color: white;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.scroll-hint span {
+  display: block;
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ===== SECCIONES ===== */
+section {
+  padding: 5rem 2rem;
+}
+
+.section-center {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-desc {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  color: #666;
+  font-size: 1.05rem;
+}
+
+/* ===== SOBRE MÍ ===== */
+.about-section {
+  background: var(--white);
+}
+
+.about-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-img {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.about-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.about-role {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.creds-box {
+  background: var(--secondary);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 12px 12px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.creds-box h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.creds-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.creds-box li {
+  padding: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.creds-box li::before {
+  content: "✓ ";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.about-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.about-tags span {
+  background: var(--secondary);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+/* ===== SERVICIOS ===== */
+.services-section {
+  background: var(--bg);
+}
+
+.services-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--primary);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.service-card .icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.service-card .duration {
+  display: inline-block;
+  background: var(--secondary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.service-card li {
+  padding: 0.3rem 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.service-card li::before {
+  content: "→ ";
+  color: var(--primary);
+}
+
+.service-card .btn-service {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.service-card .btn-service:hover {
+  background: #4a7249;
+}
+
+.service-card .btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.service-card .btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===== BLOG ===== */
+.blog-section {
+  background: var(--white);
+}
+
+.blog-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.blog-card {
+  background: var(--bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.blog-card-img {
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.blog-card:hover .blog-card-img img {
+  transform: scale(1.05);
+}
+
+.blog-card-content {
+  padding: 1.5rem;
+}
+
+.blog-card .date {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.blog-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.blog-card p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.blog-card .read-more {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap 0.3s;
+}
+
+.blog-card:hover .read-more { gap: 0.6rem; }
+
+/* ===== CONTACTO ===== */
+.contact-section {
+  background: var(--bg);
+}
+
+.contact-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  text-align: left;
+}
+
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+}
+
+.contact-item a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-item a:hover { color: var(--primary); }
+
+.contact-tip {
+  background: var(--secondary);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-tip h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.contact-tip p {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+  background: var(--bg);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+}
+
+.form-submit {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form-submit:hover {
+  background: #4a7249;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(91, 140, 90, 0.3);
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.8rem;
+}
+
+/* ===== CTA FINAL ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary) 0%, #4a7249 100%);
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--text);
+  color: white;
+  padding: 4rem 2rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover { color: var(--primary); }
+
+.footer-col h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover { color: white; }
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+
+/* ===== WHATSAPP FLOTANTE ===== */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  background: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  text-decoration: none;
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s;
+}
+
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header { padding: 0.5rem 1rem; }
+  .header-brand span { display: none; }
+  .header-ig { display: none; }
+  
+  .nav-bar {
+    gap: 1rem;
+    padding: 0.5rem 0.5rem;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .nav-bar a { white-space: nowrap; font-size: 0.8rem; }
+  
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  section { padding: 3.5rem 1.5rem; }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+}
+</style>
 </head>
 <body>
-  <div id="header-placeholder"></div>
 
-  <section class="hero">
-    <div class="hero-content">
-        <div style="margin-bottom: 1.5rem;">
-          <img src="images/logo.jpg" alt="Logo Psicosalud Wemdy Fuentes" style="max-width: 180px; border-radius: 50%;">
-        </div>
-        <h1>Psicosalud Wemdy Fuentes</h1>
-        <p class="subtitle">Psicóloga Psicoterapeuta</p>
-      <p class="tagline">"❤️ Un lugar para ti y tus emociones 😊"</p>
-      <p style="margin-bottom: 1.5rem; font-size: 1rem; opacity: 0.9;">
-        📍 Lima, Perú | 🌎 Sesiones virtuales | 🏥 Presencial bajo consulta
-      </p>
-      <a href="contacto.html" class="btn btn-primary">Reserva tu cita</a>
-      <a href="https://www.instagram.com/psicosalud.wemdyfuentes" target="_blank" class="btn btn-outline" style="margin-left: 1rem;">Sígueme en Instagram</a>
+<!-- HEADER -->
+<header id="mainHeader">
+  <a href="#inicio" class="header-left">
+    <img src="assets/logo.jpg" alt="Psicosalud">
+    <div class="header-brand">
+      Wemdy Fuentes
+      <span>Psicóloga Psicoterapeuta</span>
     </div>
-  </section>
+  </a>
+  <div class="header-right">
+    <a href="https://www.instagram.com/psicosalud.wemdyfuentes" target="_blank" class="header-ig" title="Instagram">📸</a>
+    <a href="tel:+51972031179" class="header-phone">📞 972 031 179</a>
+    <a href="#contacto" class="header-cta">Reserva tu cita</a>
+  </div>
+</header>
 
-  <section class="container">
-    <h2 class="section-title">Bienvenido a tu espacio de bienestar</h2>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; font-size: 1.1rem;">
-      En Psicosalud te ofrezco un espacio seguro, confidencial y profesional para 
-      acompañarte en tu proceso de crecimiento personal. Ya sea que busques terapia 
-      individual, de pareja o sesiones online, estoy aquí para escucharte.
-    </p>
-    
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>Terapia Individual</h3>
-        <p>Procesos personalizados para trabajar ansiedad, depresión, estrés y otros desafíos emocionales en un espacio seguro.</p>
+<!-- NAV -->
+<nav class="nav-bar" id="navBar">
+  <a href="#inicio">Inicio</a>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#blog">Blog</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <img src="assets/wemdy.jpg" alt="Psicosalud Wemdy Fuentes">
+  </div>
+  <div class="hero-content mk-reveal">
+    <img src="assets/logo.jpg" alt="Logo" class="hero-logo">
+    <h1>Psicosalud<br>Wemdy Fuentes</h1>
+    <p class="tagline">"Un lugar para ti y tus emociones"</p>
+    <p class="location">📍 Lima, Perú · 💻 Sesiones virtuales · 🏥 Presencial bajo consulta</p>
+    <div class="hero-buttons">
+      <a href="#contacto" class="btn-hero btn-primary">Reserva tu cita</a>
+      <a href="https://www.instagram.com/psicosalud.wemdyfuentes" target="_blank" class="btn-hero btn-outline-white">📸 Instagram</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>↓</span>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section class="about-section" id="sobre-mi">
+  <div class="about-grid">
+    <div class="about-img mk-reveal">
+      <img src="assets/wemdy.jpg" alt="Wemdy Fuentes">
+    </div>
+    <div class="about-text mk-reveal">
+      <p class="section-label">Sobre mí</p>
+      <h2>Hola, soy Wemdy Fuentes</h2>
+      <p class="about-role">Psicóloga Psicoterapeuta en Lima, Perú</p>
+      <p>Mi vocación es acompañar a las personas en su proceso de sanación y crecimiento personal. Creo firmemente que cada persona tiene la capacidad de transformar su vida cuando se le proporciona un espacio seguro, empático y profesional.</p>
+      <p>Como psicóloga licenciada con colegiatura activa, me comprometo a ofrecer un servicio ético y basado en la evidencia. Mi enfoque integra diferentes herramientas terapéuticas adaptadas a las necesidades únicas de cada persona.</p>
+      <div class="creds-box">
+        <h4>📚 Formación Académica</h4>
+        <ul>
+          <li>Licenciada en Psicología</li>
+          <li>Formación en Psicoterapia Gestalt</li>
+          <li>Diplomado en Neurociencias</li>
+          <li>Colegiatura profesional al día</li>
+          <li>Formación continua en terapia online</li>
+        </ul>
       </div>
-      <div class="card">
-        <div class="card-icon">💑</div>
-        <h3>Terapia de Pareja</h3>
-        <p>Mejora la comunicación, resuelve conflictos y fortalece los vínculos afectivos con un enfoque profesional.</p>
+      <div class="creds-box" style="border-left-color: var(--accent);">
+        <h4>💡 Mi Enfoque</h4>
+        <p style="font-size: 0.9rem; color: #555;">Trabajo desde la empatía genuina y el respeto absoluto por tu proceso. Cada sesión es un espacio sin juicios, donde puedes ser tú mismo mientras exploramos juntos nuevas formas de entender y gestionar tus emociones.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">💻</div>
-        <h3>Terapia Online</h3>
-        <p>Sesiones virtuales desde la comodidad de tu hogar. La misma calidad terapéutica, donde estés.</p>
-      </div>
-    </div>
-    
-    <div style="text-align: center; margin-top: 3rem;">
-      <a href="servicios.html" class="btn btn-outline">Ver todos los servicios</a>
-    </div>
-  </section>
-
-  <section class="about-section">
-    <div class="container about-content">
-        <div class="about-img">
-        <img src="images/wemdy.jpg" alt="Wemdy Fuentes - Psicóloga Psicoterapeuta en Lima" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
-        </div>
-      <div class="about-text">
-        <h2>¿Por qué elegir Psicosalud?</h2>
-        <p>
-          Mi enfoque se basa en la empatía, la confidencialidad y el compromiso 
-          genuino con tu bienestar. Como psicóloga licenciada y colegiada, ofrezco 
-          un acompañamiento profesional basado en la evidencia.
-        </p>
-        <div class="credentials">
-          <strong>✓ Licenciada en Psicología</strong><br>
-          <strong>✓ Formación en Psicoterapia Gestalt</strong><br>
-          <strong>✓ Diplomado en Neurociencias</strong><br>
-          <strong>✓ Colegiatura profesional al día</strong><br>
-          <strong>✓ Formación continua en terapia online</strong>
-        </div>
-        <a href="sobre-mi.html" class="btn btn-primary">Conóceme más</a>
+      <div class="about-tags">
+        <span>🗣️ Español</span>
+        <span>💻 Terapia Online</span>
+        <span>🏥 Lima, Perú</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="container">
-    <h2 class="section-title">Últimos artículos</h2>
-    <div class="blog-grid">
-      <article class="blog-card">
-            <div class="blog-card-img">
-            <img src="https://images.unsplash.com/photo-1638274749450-30c893afe3d1?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ansiedad" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-        <div class="blog-card-content">
-          <span class="date">15 Enero 2026</span>
-          <h3>Cómo manejar la ansiedad en tiempos de incertidumbre</h3>
-          <p>Descubre estrategias prácticas para gestionar la ansiedad cuando todo parece inestable a tu alrededor...</p>
-          <a href="articulo-ansiedad.html" class="read-more">Leer más →</a>
-        </div>
-      </article>
-      
-      <article class="blog-card">
-            <div class="blog-card-img">
-            <img src="https://plus.unsplash.com/premium_photo-1700353612860-bd8ab8d71f05?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ansiedad" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-        <div class="blog-card-content">
-          <span class="date">10 Enero 2026</span>
-          <h3>La importancia de la terapia en parejas</h3>
-          <p>La terapia de pareja no es solo para crisis. Es una herramienta poderosa para fortalecer el vínculo...</p>
-          <a href="articulo-pareja.html" class="read-more">Leer más →</a>
-        </div>
-      </article>
-      
-      <article class="blog-card">
-            <div class="blog-card-img">
-            <img src="https://plus.unsplash.com/premium_photo-1675195905377-e78fccd629c9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ansiedad" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-        <div class="blog-card-content">
-          <span class="date">5 Enero 2026</span>
-          <h3>5 técnicas para el autocuidado emocional</h3>
-          <p>El autocuidado no es egoísmo, es necesidad. Aprende técnicas sencillas para nutrir tu salud mental...</p>
-          <a href="articulo-autocuidado.html" class="read-more">Leer más →</a>
-        </div>
-      </article>
+<!-- SERVICIOS -->
+<section class="services-section" id="servicios">
+  <div class="section-center">
+    <p class="section-label mk-reveal">Servicios</p>
+    <h2 class="section-title mk-reveal">Servicios Terapéuticos</h2>
+    <p class="section-desc mk-reveal">Todos los servicios se adaptan a tus necesidades. La duración estándar de cada sesión es de aproximadamente 1 hora.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card mk-reveal">
+      <div class="icon">🧠</div>
+      <h3>Terapia Individual</h3>
+      <span class="duration">⏱️ ~50 minutos</span>
+      <p>Espacio personalizado para trabajar ansiedad, depresión, estrés, duelos, autoestima y otros procesos emocionales.</p>
+      <ul>
+        <li>Plan de trabajo personalizado</li>
+        <li>Seguimiento continuo</li>
+      </ul>
+      <a href="#contacto" class="btn-service">Agendar sesión</a>
     </div>
-    
-    <div style="text-align: center; margin-top: 2rem;">
-      <a href="blog.html" class="btn btn-outline">Ver todos los artículos</a>
+    <div class="service-card mk-reveal">
+      <div class="icon">💑</div>
+      <h3>Terapia de Pareja</h3>
+      <span class="duration">⏱️ ~50 minutos</span>
+      <p>Fortalece la comunicación, resuelve conflictos y reconstruye el vínculo afectivo.</p>
+      <ul>
+        <li>Comunicación efectiva</li>
+        <li>Manejo de conflictos</li>
+        <li>Reconstrucción de confianza</li>
+      </ul>
+      <a href="#contacto" class="btn-service">Agendar sesión</a>
     </div>
-  </section>
+    <div class="service-card mk-reveal">
+      <div class="icon">💻</div>
+      <h3>Terapia Online</h3>
+      <span class="duration">⏱️ ~50 minutos</span>
+      <p>Sesiones virtuales con la misma calidad y confidencialidad que la presencial.</p>
+      <ul>
+        <li>Google Meet / Microsoft Teams</li>
+        <li>Horarios flexibles</li>
+        <li>Ideal para agendas ocupadas</li>
+      </ul>
+      <a href="#contacto" class="btn-service">Agendar sesión</a>
+    </div>
+    <div class="service-card mk-reveal">
+      <div class="icon">🏥</div>
+      <h3>Sesión Presencial</h3>
+      <span class="duration">📅 Bajo consulta</span>
+      <p>Atención presencial en Lima, sujeta a coordinación previa.</p>
+      <ul>
+        <li>Consultar disponibilidad</li>
+        <li>Protocolos de bioseguridad</li>
+      </ul>
+      <a href="#contacto" class="btn-service btn-outline">Consultar disponibilidad</a>
+    </div>
+    <div class="service-card mk-reveal">
+      <div class="icon">🎤</div>
+      <h3>Charlas y Talleres</h3>
+      <span class="duration">📅 Bajo consulta</span>
+      <p>Charlas sobre salud mental para empresas, instituciones o grupos.</p>
+      <ul>
+        <li>Salud mental en el trabajo</li>
+        <li>Gestión del estrés</li>
+        <li>Inteligencia emocional</li>
+      </ul>
+      <a href="#contacto" class="btn-service btn-outline">Solicitar información</a>
+    </div>
+  </div>
+</section>
 
-  <section class="container" style="text-align: center; background: linear-gradient(135deg, var(--color-primary) 0%, #4a7249 100%); color: white; border-radius: var(--radius); padding: 4rem 2rem;">
-    <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">¿Listo para comenzar tu proceso?</h2>
-    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">
-      Da el primer paso hacia tu bienestar emocional. Agenda tu cita hoy mismo.
-    </p>
-    <a href="contacto.html" class="btn" style="background: white; color: var(--color-primary);">Reservar cita ahora</a>
-  </section>
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+  <div class="section-center">
+    <p class="section-label mk-reveal">Blog</p>
+    <h2 class="section-title mk-reveal">Artículos de Salud Mental</h2>
+    <p class="section-desc mk-reveal">Reflexiones, consejos y recursos para cuidar tu bienestar emocional.</p>
+  </div>
+  <div class="blog-grid">
+    <article class="blog-card mk-reveal">
+      <div class="blog-card-img">
+        <img src="https://images.unsplash.com/photo-1638274749450-30c893afe3d1?q=80&w=800&auto=format&fit=crop" alt="Ansiedad">
+      </div>
+      <div class="blog-card-content">
+        <span class="date">15 Enero 2026</span>
+        <h3>Cómo manejar la ansiedad en tiempos de incertidumbre</h3>
+        <p>Descubre estrategias prácticas para gestionar la ansiedad cuando todo parece inestable...</p>
+        <a href="articulo-ansiedad.html" class="read-more">Leer más →</a>
+      </div>
+    </article>
+    <article class="blog-card mk-reveal">
+      <div class="blog-card-img">
+        <img src="https://plus.unsplash.com/premium_photo-1700353612860-bd8ab8d71f05?q=80&w=800&auto=format&fit=crop" alt="Pareja">
+      </div>
+      <div class="blog-card-content">
+        <span class="date">10 Enero 2026</span>
+        <h3>La importancia de la terapia en parejas</h3>
+        <p>La terapia de pareja no es solo para crisis. Es una herramienta para fortalecer el vínculo...</p>
+        <a href="articulo-pareja.html" class="read-more">Leer más →</a>
+      </div>
+    </article>
+    <article class="blog-card mk-reveal">
+      <div class="blog-card-img">
+        <img src="https://plus.unsplash.com/premium_photo-1675195905377-e78fccd629c9?q=80&w=800&auto=format&fit=crop" alt="Autocuidado">
+      </div>
+      <div class="blog-card-content">
+        <span class="date">5 Enero 2026</span>
+        <h3>5 técnicas para el autocuidado emocional</h3>
+        <p>El autocuidado no es egoísmo, es necesidad. Aprende técnicas para nutrir tu salud mental...</p>
+        <a href="articulo-autocuidado.html" class="read-more">Leer más →</a>
+      </div>
+    </article>
+    <article class="blog-card mk-reveal">
+      <div class="blog-card-img">
+        <img src="https://plus.unsplash.com/premium_photo-1675195905377-e78fccd629c9?q=80&w=800&auto=format&fit=crop" alt="Terapia Online">
+      </div>
+      <div class="blog-card-content">
+        <span class="date">1 Enero 2026</span>
+        <h3>¿La terapia online es efectiva?</h3>
+        <p>Desde la pandemia, la terapia virtual se ha consolidado como una alternativa válida...</p>
+        <a href="articulo-terapia-online.html" class="read-more">Leer más →</a>
+      </div>
+    </article>
+    <article class="blog-card mk-reveal">
+      <div class="blog-card-img">
+        <img src="https://images.unsplash.com/photo-1586473219010-2ffc57b0d282?q=80&w=800&auto=format&fit=crop" alt="Señales">
+      </div>
+      <div class="blog-card-content">
+        <span class="date">28 Diciembre 2025</span>
+        <h3>Señales de que necesitas apoyo psicológico</h3>
+        <p>A veces no reconocemos cuando necesitamos ayuda. Estas señales pueden indicar que es momento de consultar...</p>
+        <a href="articulo-senales.html" class="read-more">Leer más →</a>
+      </div>
+    </article>
+    <article class="blog-card mk-reveal">
+      <div class="blog-card-img">
+        <img src="https://images.unsplash.com/photo-1618517047922-d18a5a36c109?q=80&w=800&auto=format&fit=crop" alt="Sueño">
+      </div>
+      <div class="blog-card-content">
+        <span class="date">20 Diciembre 2025</span>
+        <h3>El sueño y la salud mental</h3>
+        <p>Dormir bien no es un lujo, es una necesidad biológica. Descubre cómo impacta en tu bienestar...</p>
+        <a href="articulo-sueno.html" class="read-more">Leer más →</a>
+      </div>
+    </article>
+  </div>
+</section>
 
-  <div id="footer-placeholder"></div>
-  <script src="js/main.js"></script>
+<!-- CONTACTO -->
+<section class="contact-section" id="contacto">
+  <div class="section-center" style="margin-bottom: 3rem;">
+    <p class="section-label mk-reveal">Contacto</p>
+    <h2 class="section-title mk-reveal">¿Listo para comenzar?</h2>
+    <p class="section-desc mk-reveal">Estoy aquí para acompañarte. Elige la forma de contacto que prefieras.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info mk-reveal">
+      <h3>📱 WhatsApp / Teléfono</h3>
+      <div class="contact-item">
+        <span>📞</span>
+        <a href="tel:+51972031179">972 031 179</a>
+      </div>
+      <p style="font-size: 0.85rem; color: #888; margin-left: 2.2rem;">Respuesta en menos de 24 horas</p>
+
+      <h3>💬 Instagram</h3>
+      <div class="contact-item">
+        <span>📸</span>
+        <a href="https://www.instagram.com/psicosalud.wemdyfuentes" target="_blank">@psicosalud.wemdyfuentes</a>
+      </div>
+      <p style="font-size: 0.85rem; color: #888; margin-left: 2.2rem;">Contáctame por mensaje privado</p>
+
+      <h3>📍 Ubicación</h3>
+      <div class="contact-item">
+        <span>🌎</span>
+        <span>Lima, Perú</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #888; margin-left: 2.2rem;">Sesiones virtuales desde cualquier lugar.<br>Presencial bajo consulta.</p>
+
+      <h3>🗣️ Idiomas</h3>
+      <div class="contact-item">
+        <span>🌐</span>
+        <span>Español</span>
+      </div>
+
+      <div class="contact-tip">
+        <h4>⚡ Respuesta rápida</h4>
+        <p>Escríbeme por WhatsApp indicando:<br>1. Tu nombre<br>2. Tipo de servicio<br>3. Preferencia de horario</p>
+      </div>
+    </div>
+
+    <div class="mk-reveal">
+      <form class="contact-form" action="https://formspree.io/f/xrewpdde" method="POST">
+        <input type="hidden" name="_next" value="https://psicosalud-fuentes.netlify.app/gracias.html">
+        <input type="hidden" name="_subject" value="Nuevo mensaje de Psicosalud Web">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="telefono">Celular / WhatsApp</label>
+          <input type="tel" id="telefono" name="telefono" required placeholder="Tu número">
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio" name="servicio" required>
+            <option value="">Selecciona una opción</option>
+            <option value="individual">Terapia Individual</option>
+            <option value="pareja">Terapia de Pareja</option>
+            <option value="online">Terapia Online</option>
+            <option value="presencial">Sesión Presencial</option>
+            <option value="charla">Charla/Taller</option>
+            <option value="otro">Otra consulta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar mensaje</button>
+        <p class="form-note">🔒 Tu información es confidencial y no será compartida.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <h2 class="mk-reveal">¿Necesitas hablar con alguien?</h2>
+  <p class="mk-reveal">Da el primer paso hacia tu bienestar emocional. Estoy aquí para escucharte.</p>
+  <div class="cta-buttons mk-reveal">
+    <a href="tel:+51972031179" class="btn-hero btn-white">📞 972 031 179</a>
+    <a href="https://wa.me/51972031179" class="btn-hero btn-outline-white" target="_blank">💬 WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Psicosalud Wemdy Fuentes</h3>
+      <p>Psicóloga Psicoterapeuta en Lima, Perú. Un lugar para ti y tus emociones.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/psicosalud.wemdyfuentes" target="_blank">📸 Instagram</a>
+        <a href="https://wa.me/51972031179" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#blog">Blog</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="tel:+51972031179">📞 972 031 179</a>
+      <a href="https://wa.me/51972031179" target="_blank">💬 WhatsApp</a>
+      <a href="https://www.instagram.com/psicosalud.wemdyfuentes" target="_blank">📸 Instagram</a>
+      <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem; display: block; padding: 0.3rem 0;">📍 Lima, Perú</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Psicosalud Wemdy Fuentes — Todos los derechos reservados
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/51972031179" class="wa-float" target="_blank" title="WhatsApp">💬</a>
+
+<script src="motion.js"></script>
+<script>
+// Header scroll effect
+var header = document.getElementById('mainHeader');
+var nav = document.getElementById('navBar');
+var lastScroll = 0;
+
+window.addEventListener('scroll', function() {
+  var currentScroll = window.scrollY;
+  
+  if (currentScroll > 80) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+  
+  // Hide nav on scroll down, show on scroll up
+  if (currentScroll > lastScroll && currentScroll > 200) {
+    nav.classList.add('hidden');
+  } else {
+    nav.classList.remove('hidden');
+  }
+  lastScroll = currentScroll;
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      var offset = 100;
+      var top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
 </body>
 </html>
